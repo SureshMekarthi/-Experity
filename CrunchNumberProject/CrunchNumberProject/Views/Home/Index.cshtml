@@ -1,8 +1,53 @@
-﻿@{
+﻿@model CrunchNumberProject.Models.NumberCrunchViewModel
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+<div class="row">
+    <div class="col border ">
+        <div class="m-2">
+            <h2 class="text-center bg-primary">Number Crunch</h2>
+            <div class="row">
+                <div class="col"></div>
+                <div class="col-6">
+                    @using (Html.BeginForm("NumberCrunchInformation", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        <div class="form-group row">
+                            <label for="SampleMaxCount" class="col-sm-4 col-form-label">Sample Max Count</label>
+                            <div class="col-sm-4">
+                                @Html.TextBoxFor(m => m.SampleMaxCount)
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPatientScore" class="col-sm-4 col-form-label">Patient Score</label>
+                            <div class="col-sm-4">
+                                @Html.TextBoxFor(m => m.PatientScore)
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputDoctorScore" class="col-sm-4 col-form-label">Doctor Score</label>
+                            <div class="col-sm-4">
+                                @Html.TextBoxFor(m => m.DoctoreScore)
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputUploadMessage" class="col-sm-4 col-form-label">Upload Message</label>
+                            <div class="col-sm-4">
+
+                                @Html.TextBoxFor(m => m.UploadScore)
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <input type="submit" value="Submit" class="btn btn-primary" />
+                        </div>
+                    }
+                </div>
+                <div class="col"></div>
+
+            </div>
+        </div>
+    </div>
+
 </div>
+

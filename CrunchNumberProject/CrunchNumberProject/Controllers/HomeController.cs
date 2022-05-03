@@ -2,10 +2,12 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
 namespace CrunchNumberProject.Controllers
 {
@@ -32,6 +34,13 @@ namespace CrunchNumberProject.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        [HttpPost]
+        public ActionResult NumberCrunchInformation(NumberCrunchViewModel numberCrunchViewModel, IFormFile file)
+        {
+
+            return View(numberCrunchViewModel);
         }
     }
 }
